@@ -22,7 +22,7 @@ export const StyledButton = styled.button`
   cursor: pointer;
   user-select: none;
   color: rgb(255, 255, 255) !important;
-  background-color: rgb(0, 0, 0) !important;
+  background-color: ${(props) => (props.type === "delete" ? "red" : "#000000")};
   padding: 8px 16px;
   width: auto;
   border: none;

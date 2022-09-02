@@ -11,6 +11,7 @@ const User = ({ name, email, phone, handleDelete, handleEdit }) => (
     <p>{email}</p>
     <p>{phone}</p>
     <StyledButton
+      type="delete"
       onClick={() => {
         confirmAlert({
           title: "Confirm to Delete",
