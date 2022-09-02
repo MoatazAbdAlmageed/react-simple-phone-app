@@ -1,36 +1,45 @@
 import React from "react";
-//import { Test } from './List.styles';
+import { StyledList } from "./List.styles";
+import User from "../../User/User/User";
 
-const List = ({ users, handleDelete, handleEdit, handleSearch }) => (
-  <div className="ListWrapper">
-    <h1>Users</h1>
+const List = ({
+  users,
+  handleDelete,
+  handleEdit,
+  handleSearch,
+  handleClearSearch,
+  search,
+}) => (
+  <StyledList className="ListWrapper">
+    <h1>Phone Books</h1>
 
     <input
       placeholder="Search by email"
       type="text"
       className="search"
       onChange={handleSearch}
+      value={search}
     />
-    {users.map(({ name, email }) => (
-      <div key={email}>
-        <h1>{name}</h1>
-        <p>{email}</p>
-        <button
-          onClick={() => {
-            const confirm = window.confirm(
-              "Are you sure you want to delete this user?"
-            );
-            if (confirm) {
-              return handleDelete(email);
-            }
-          }}
-        >
-          Remove
-        </button>
-        <button onClick={handleEdit}>Edit</button>
-      </div>
+
+    {users.map(({ name, email, phone }) => (
+      <User
+        key={email}
+        name={name}
+        email={email}
+        phone={phone}
+        handleDelete={handleDelete}
+        handleEdit={handleEdit}
+      ></User>
     ))}
-  </div>
+
+    {!users.length && (
+      <>
+        <p>No data</p>
+
+        <button onClick={handleClearSearch}>Clear</button>
+      </>
+    )}
+  </StyledList>
 );
 
 List.propTypes = {
@@ -38,7 +47,7 @@ List.propTypes = {
 };
 
 List.defaultProps = {
-  // bla: 'test',
+  // bla: 'StyledList',
 };
 
 export default List;

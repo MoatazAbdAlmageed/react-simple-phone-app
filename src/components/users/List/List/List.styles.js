@@ -1,6 +1,6 @@
-// import styled from 'styled-components';
+import styled from "styled-components";
 
-// export const Test = styled.div`
-//  display: flex;
-// `;
-//
+export const StyledList = styled.div`
+  color: #000 !important;
+  background-color: #ffffcc !important;
+`;
