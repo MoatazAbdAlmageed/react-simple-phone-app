@@ -12,6 +12,7 @@ const Add = ({ handleChangeForm, submitAddUser }) => (
         className="form-control"
         placeholder="name"
         name="name"
+        required
       />
       <label htmlFor="email">Email</label>
       <StyledInput
@@ -19,6 +20,7 @@ const Add = ({ handleChangeForm, submitAddUser }) => (
         className="form-control"
         placeholder="email"
         name="email"
+        required
       />{" "}
       <label htmlFor="phone">Phone</label>
       <StyledInput
@@ -26,6 +28,7 @@ const Add = ({ handleChangeForm, submitAddUser }) => (
         className="form-control"
         placeholder="phone"
         name="phone"
+        required
       />
       <StyledButton>Add</StyledButton>
     </form>
