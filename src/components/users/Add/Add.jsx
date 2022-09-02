@@ -1,4 +1,4 @@
-import { StyledButton, StyledInput } from "../../global.styles";
+import { StyledButton, StyledInput } from "../../global/global.styles";
 
 import React from "react";
 

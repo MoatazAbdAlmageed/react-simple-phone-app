@@ -1,6 +1,7 @@
-import { StyledButton, StyledInput } from "../../../global.styles";
+import { StyledButton, StyledInput } from "../../../global/global.styles";
 
 import Add from "../../Add/Add";
+import Modal from "../../../global/Modal/Modal";
 import React from "react";
 import { StyledList } from "./List.styles";
 import User from "../../User/User/User";
@@ -14,6 +15,8 @@ const List = ({
   search,
   submitAddUser,
   handleChangeForm,
+  showAddModal,
+  handleShowAddModal,
 }) => (
   <StyledList className="ListWrapper">
     <h1>Phone Books</h1>
@@ -32,7 +35,15 @@ const List = ({
       </>
     )}
 
-    <Add handleChangeForm={handleChangeForm} submitAddUser={submitAddUser} />
+    <StyledButton onClick={handleShowAddModal}>Add User</StyledButton>
+    {showAddModal && (
+      <Modal handleShowAddModal={handleShowAddModal}>
+        <Add
+          handleChangeForm={handleChangeForm}
+          submitAddUser={submitAddUser}
+        />
+      </Modal>
+    )}
     {users.map(({ name, email, phone }) => (
       <User
         key={email}

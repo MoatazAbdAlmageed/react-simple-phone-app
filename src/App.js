@@ -14,6 +14,7 @@ const userData = [
 ];
 function App() {
   const [users, setUsers] = useState(userData);
+  const [showAddModal, setShowAddModal] = useState(false);
   const [search, setSearch] = useState("");
   const [user, setUser] = useState({});
 
@@ -40,6 +41,10 @@ function App() {
     setUsers([...users, user]);
     console.log("users");
     console.log(users);
+    setShowAddModal(false);
+  }
+  function handleShowAddModal(e) {
+    setShowAddModal(!showAddModal);
   }
 
   function handleSearch({ target }) {
@@ -70,6 +75,8 @@ function App() {
         search={search}
         handleChangeForm={handleChangeForm}
         submitAddUser={submitAddUser}
+        showAddModal={showAddModal}
+        handleShowAddModal={handleShowAddModal}
       />
     </div>
   );

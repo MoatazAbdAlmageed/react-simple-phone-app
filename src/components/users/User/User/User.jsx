@@ -1,7 +1,7 @@
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 
 import React from "react";
-import { StyledButton } from "../../../global.styles";
+import { StyledButton } from "../../../global/global.styles";
 import { StyledUser } from "./User.styles";
 import { confirmAlert } from "react-confirm-alert"; // Import
 
