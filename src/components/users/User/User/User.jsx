@@ -1,5 +1,8 @@
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+
 import React from "react";
 import { StyledUser } from "./User.styles";
+import { confirmAlert } from "react-confirm-alert"; // Import
 
 const User = ({ name, email, phone, handleDelete, handleEdit }) => (
   <StyledUser>
@@ -8,16 +11,23 @@ const User = ({ name, email, phone, handleDelete, handleEdit }) => (
     <p>{phone}</p>
     <button
       onClick={() => {
-        const confirm = window.confirm(
-          "Are you sure you want to delete this user?"
-        );
-
-        if (confirm) {
-          return handleDelete(email);
-        }
+        confirmAlert({
+          title: "Confirm to Delete",
+          message: `Are you sure you want to delete ${name}?`,
+          buttons: [
+            {
+              label: "Yes",
+              onClick: () => handleDelete(email),
+            },
+            {
+              label: "No",
+              // onClick: () => alert('Click No')
+            },
+          ],
+        });
       }}
     >
-      Remove
+      Delete
     </button>
     <button onClick={handleEdit}>Edit</button>
   </StyledUser>
