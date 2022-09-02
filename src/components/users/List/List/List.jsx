@@ -1,3 +1,4 @@
+import Add from "../../Add/Add";
 import React from "react";
 import { StyledList } from "./List.styles";
 import User from "../../User/User/User";
@@ -9,6 +10,8 @@ const List = ({
   handleSearch,
   handleClearSearch,
   search,
+  submitAddUser,
+  handleChangeForm,
 }) => (
   <StyledList className="ListWrapper">
     <h1>Phone Books</h1>
@@ -20,7 +23,14 @@ const List = ({
       onChange={handleSearch}
       value={search}
     />
+    {search && (
+      <>
+        {!users.length && <p>No Users found</p>}
+        <button onClick={handleClearSearch}>Clear</button>
+      </>
+    )}
 
+    <Add handleChangeForm={handleChangeForm} submitAddUser={submitAddUser} />
     {users.map(({ name, email, phone }) => (
       <User
         key={email}
@@ -31,14 +41,6 @@ const List = ({
         handleEdit={handleEdit}
       ></User>
     ))}
-
-    {!users.length && (
-      <>
-        <p>No data</p>
-
-        <button onClick={handleClearSearch}>Clear</button>
-      </>
-    )}
   </StyledList>
 );
 

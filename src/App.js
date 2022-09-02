@@ -15,6 +15,7 @@ const userData = [
 function App() {
   const [users, setUsers] = useState(userData);
   const [search, setSearch] = useState("");
+  const [user, setUser] = useState({});
 
   function handleDelete(email) {
     setUsers(users.filter((user) => user.email !== email));
@@ -28,10 +29,23 @@ function App() {
     setUsers(userData);
   }
 
+  function handleChangeForm({ target }) {
+    setUser({ ...user, [target.name]: target.value });
+  }
+  function submitAddUser(e) {
+    e.preventDefault();
+    console.log("submitAddUser");
+    console.log("user");
+    console.log(user);
+    setUsers([...users, user]);
+    console.log("users");
+    console.log(users);
+  }
+
   function handleSearch({ target }) {
     if (target.value === "") {
       setSearch("");
-      setUsers(userData);
+      setUsers(users);
     } else {
       setSearch(target.value);
       setUsers(
@@ -54,6 +68,8 @@ function App() {
         handleSearch={handleSearch}
         handleClearSearch={handleClearSearch}
         search={search}
+        handleChangeForm={handleChangeForm}
+        submitAddUser={submitAddUser}
       />
     </div>
   );
