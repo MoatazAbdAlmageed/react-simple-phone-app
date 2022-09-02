@@ -1,3 +1,5 @@
+import { StyledButton, StyledInput } from "../../../global.styles";
+
 import Add from "../../Add/Add";
 import React from "react";
 import { StyledList } from "./List.styles";
@@ -16,7 +18,7 @@ const List = ({
   <StyledList className="ListWrapper">
     <h1>Phone Books</h1>
 
-    <input
+    <StyledInput
       placeholder="Search by email"
       type="text"
       className="search"
@@ -26,7 +28,7 @@ const List = ({
     {search && (
       <>
         {!users.length && <p>No Users found</p>}
-        <button onClick={handleClearSearch}>Clear</button>
+        <StyledButton onClick={handleClearSearch}>Clear</StyledButton>
       </>
     )}
 

@@ -1,32 +1,33 @@
+import { StyledButton, StyledInput } from "../../global.styles";
+
 import React from "react";
-//import { Test } from './Add.styles';
 
 const Add = ({ handleChangeForm, submitAddUser }) => (
   <div className="AddWrapper">
     <h2>add new user</h2>
     <form onSubmit={submitAddUser} onChange={handleChangeForm}>
       <label htmlFor="name">Name</label>
-      <input
+      <StyledInput
         type="text"
         className="form-control"
         placeholder="name"
         name="name"
       />
       <label htmlFor="email">Email</label>
-      <input
+      <StyledInput
         type="email"
         className="form-control"
         placeholder="email"
         name="email"
       />{" "}
       <label htmlFor="phone">Phone</label>
-      <input
+      <StyledInput
         type="phone"
         className="form-control"
         placeholder="phone"
         name="phone"
       />
-      <button>Add</button>
+      <StyledButton>Add</StyledButton>
     </form>
   </div>
 );

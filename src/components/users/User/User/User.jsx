@@ -1,6 +1,7 @@
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 
 import React from "react";
+import { StyledButton } from "../../../global.styles";
 import { StyledUser } from "./User.styles";
 import { confirmAlert } from "react-confirm-alert"; // Import
 
@@ -9,7 +10,7 @@ const User = ({ name, email, phone, handleDelete, handleEdit }) => (
     <h1>{name}</h1>
     <p>{email}</p>
     <p>{phone}</p>
-    <button
+    <StyledButton
       onClick={() => {
         confirmAlert({
           title: "Confirm to Delete",
@@ -28,8 +29,8 @@ const User = ({ name, email, phone, handleDelete, handleEdit }) => (
       }}
     >
       Delete
-    </button>
-    <button onClick={handleEdit}>Edit</button>
+    </StyledButton>
+    <StyledButton onClick={handleEdit}>Edit</StyledButton>
   </StyledUser>
 );
 
